@@ -19,10 +19,12 @@ console.log(`utente ha scelto ${userInputChoice}, ${userInputNumber}`)
 const isUserInputChoice = !userInputChoice.includes('pari') && !userInputChoice.includes('dispari')  //boolean
 const isValidNumberInput = !userInputNumber || userInputNumber < 1 || userInputNumber >= 6 //boolean
 
+
 // verifico che l'input utente siano validi
 if (isValidNumberInput || isUserInputChoice) {
     alert('inserire un valore valido')
 } else {
+
 
     // genero un numero random tra 1 e 5
     function getRandomIntInclusive(min, max) {
@@ -34,30 +36,44 @@ if (isValidNumberInput || isUserInputChoice) {
     const computerInput = getRandomIntInclusive(1, 5)  //number
     console.log(`il numero inserito dal computer è ${computerInput}`)
 
+
     // faccio la funzione per la somma dei numeri
+    /*
     function getSum(num1, num2) {
         // sum = num1 + num2
         return num1 + num2  //number
     }
+    */
+    const getSum = (num1, num2) => num1 + num2
+
     const sumInput = getSum(userInputNumber, computerInput)  //number
     console.log(`la somma è ${sumInput}`);
 
+
     // faccio la funzione per pari
+    /*
     function isEven(number) {
         // evenRest = number % 2
         return number % 2 === 0 //boolean
     }
+    */
+    const isEven = (number) => number % 2 === 0
+    
 
-
+    /*
     let resultEvenOdd = ''
-
+    
     if (isEven(sumInput)) {
         resultEvenOdd = 'pari'  //string
     } else {
         resultEvenOdd = 'dispari'  //string
     }
+    */
+    const resultEvenOdd = isEven ? 'pari' : 'dispari';
+
 
     // verifico se utente ha indovinato
+    /*
     if (userInputChoice === resultEvenOdd) {
         alert('hai vinto')
         console.log('hai vinto');
@@ -65,4 +81,8 @@ if (isValidNumberInput || isUserInputChoice) {
         alert('hai perso')
         console.log('hai perso');
     }
+    */
+    const resultPhrase = userInputChoice === resultEvenOdd ? 'hai vinto' : 'hai perso';
+    alert(resultPhrase)
+    console.log(resultPhrase);
 }
