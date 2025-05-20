@@ -19,31 +19,31 @@ console.log(reversedWord);
 */
 // chiedo la parola all'utente
 const userWord = prompt('inserisci una parola')  //string
-console.log(`la parola inserida dall'utente è: ${userWord}`);
+console.log(`la parola inserita dall'utente è: ${userWord}`);
 
 // verifico che utente inserisca una parola valida
 if (!userWord) {
     alert('inserire una parola valida')
+} 
+
+// faccio la funzione per ottenere la parola invertita
+function getReversedWord(word) {
+    let reversed = '';
+    for (let i = 0; i < word.length; i++) {
+        let char = word.at(- 1 - i);
+        // let char = word[word.length - 1 - i];  //string
+        // console.log(i, char);
+        reversed += char;
+    }
+    return reversed  //string
+}
+
+const reversedWord = getReversedWord(userWord);
+// console.log(reversedWord);
+
+
+if (reversedWord === userWord) {
+    console.log(`${userWord} è palindromo`)
 } else {
-
-    // faccio la funzione per ottenere la parola invertita
-    function getReversedWord(word) {
-        let reversed = '';
-        for (let i = 0; i < word.length; i++) {
-            let char = word[word.length - 1 - i];  //string
-            // console.log(i, char);
-            reversed += char;
-        }
-        return reversed  //string
-    }
-
-    const reversedWord = getReversedWord(userWord);
-    // console.log(reversedWord);
-
-
-    if (reversedWord === userWord) {
-        console.log(`${userWord} è palindromo`)
-    } else {
-        console.log(`${userWord} non è palindromo`)
-    }
+    console.log(`${userWord} non è palindromo`)
 }
